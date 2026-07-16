@@ -1,0 +1,38 @@
+[project]
+name = "google-sheets-mcp-server"
+version = "0.1.0"
+description = "MCP server for Google Sheets (read/write/dropdowns) plus an optional scheduled Gmail-to-Sheet monitor."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Jason Eckardt-Taing", email = "jeckardt.taing@gmail.com" }]
+requires-python = ">=3.10"
+dependencies = [
+    "google-api-python-client>=2.140.0",
+    "google-auth>=2.32.0",
+    "google-auth-oauthlib>=1.2.0",
+    "mcp[cli]>=1.2.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.5",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["server", "gmail_client", "monitor_job_responses"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

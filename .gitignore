@@ -1,0 +1,22 @@
+# Credentials — never commit any of these
+service_account.json
+*.iam.gserviceaccount.com.json
+gmail_client_secret.json
+gmail_token.json
+.env
+
+# Runtime state
+job_monitor_state.json
+*.log
+pytest-results.xml
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Local-only files (personal notes, one-off scripts)
+local/
